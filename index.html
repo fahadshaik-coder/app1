@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal Shop</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 6%;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 90px 6%;
+      text-align: center;
+      background: #f6f6f4;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      margin: 0 0 16px;
+      letter-spacing: -3px;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 0 auto 28px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .products {
+      padding: 70px 6%;
+    }
+
+    .section-title {
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .product-image {
+      height: 260px;
+      display: grid;
+      place-items: center;
+      background: #f1f1ef;
+      font-size: 4rem;
+    }
+
+    .info {
+      padding: 18px;
+    }
+
+    .info h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .price {
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      padding: 11px;
+      background: #111;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    footer {
+      padding: 30px 6%;
+      border-top: 1px solid #eee;
+      color: #777;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">MINIMAL.</div>
+
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#" id="cart">Cart (0)</a>
+    </nav>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Simple things, well made.</h1>
+
+    <p>
+      Thoughtfully designed essentials for everyday life.
+      Clean forms, quality materials, no unnecessary extras.
+    </p>
+
+    <a class="btn" href="#shop">Shop Collection</a>
+  </section>
+
+
+  <!-- Products -->
+  <section class="products" id="shop">
+
+    <div class="section-title">
+      <h2>Featured Products</h2>
+    </div>
+
+    <div class="grid">
+
+      <!-- Product 1 -->
+      <article class="card">
+        <div class="product-image">☕</div>
+
+        <div class="info">
+          <h3>Ceramic Mug</h3>
+          <div class="price">$24</div>
+
+          <button onclick="addToCart()">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+
+      <!-- Product 2 -->
+      <article class="card">
+        <div class="product-image">👜</div>
+
+        <div class="info">
+          <h3>Canvas Tote</h3>
+          <div class="price">$32</div>
+
+          <button onclick="addToCart()">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+
+      <!-- Product 3 -->
+      <article class="card">
+        <div class="product-image">💡</div>
+
+        <div class="info">
+          <h3>Desk Lamp</h3>
+          <div class="price">$68</div>
+
+          <button onclick="addToCart()">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+
+      <!-- Product 4 -->
+      <article class="card">
+        <div class="product-image">📓</div>
+
+        <div class="info">
+          <h3>Notebook</h3>
+          <div class="price">$18</div>
+
+          <button onclick="addToCart()">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer id="about">
+    © 2026 Minimal. Built with simplicity.
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script>
+    let cartCount = 0;
+
+    function addToCart() {
+      cartCount++;
+
+      document.getElementById("cart").textContent =
+        `Cart (${cartCount})`;
+    }
+  </script>
+
+</body>
+</html>
